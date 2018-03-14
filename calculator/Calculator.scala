@@ -2,20 +2,18 @@
 object Calculator extends App {
 
 	// Lambda integer function operations
-	val sum = (x: Int, y: Int) => x + y
-	val subtract = (x: Int, y: Int) => x - y
-	val multiply = (x: Int, y: Int) => x * y
-	val divide = (x: Int, y: Int) => x / y
-	val modulus = (x: Int, y: Int) => x % y
+	val sum: (Int, Int) => (Int) = (x, y) => x + y
+	val subtract: (Int, Int) => (Int) = (x, y) => x - y
+	val multiply: (Int, Int) => (Int) = (x, y) => x * y
+	val divide: (Int, Int) => (Int) = (x, y) => x / y
+	val modulus: (Int, Int) => (Int) = (x, y) => x % y
 
-	// Lambda double function operations
-	val sumDouble = (x: Double, y: Double) => x + y
-	val subtractDouble = (x: Double, y: Double) => x - y
-	val multiplyDouble = (x: Double, y: Double) => x * y
-	val divideDouble = (x: Double, y: Double) => x / y
-	val modulusDouble = (x: Double, y: Double) => x % y
-
-	val stringConcat = (string01: String, string02: String) => string01 + " " + string02
+	// Lambda Double function operations
+	val sumDouble: (Double, Double) => (Double) = (x, y) => x + y
+	val subtractDouble: (Double, Double) => (Double) = (x, y) => x - y
+	val multiplyDouble: (Double, Double) => (Double) = (x, y) => x * y
+	val divideDouble: (Double, Double) => (Double) = (x, y) => x / y
+	val modulusDouble: (Double, Double) => (Double) = (x, y) => x % y
 
 	// Calculator method
 	def calculator[T](f: (T, T) => T, input01: T, input02: T): T = f(input01, input02)
@@ -34,5 +32,12 @@ object Calculator extends App {
 	println("The division of (134.34 / 10.89) is = " + calculator[Double](divideDouble, 134.34, 10.89))
 	println("The modulus of (134.34 % 10.89) is = " + calculator[Double](modulusDouble, 134.34, 10.89))
 
-	println(calculator[String](stringConcat, "Joe", "Bloggs"))
+    // Lambda string concatenation functions
+	val concatString: (String, String) => (String) = (input01, input02) => input01 + " " + input02
+
+	// String method
+	def stringOperator[T](f: (T, T) => T, input01: T, input02: T): T = f(input01, input02)
+
+    // String operations
+	println("\nThe two strings 'Joe' & 'Bloggs' concatenated are " + stringOperator[String](concatString, "Joe", "Bloggs"))
 }
