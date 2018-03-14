@@ -6,3 +6,6 @@ Some basic functional programming techniques using lambdas, functional parameter
 
 ## Compiling with Scala CLI
 scalac Main.scala
+
+## Execute app with Scala CLI
+scala Main
