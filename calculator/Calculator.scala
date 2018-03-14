@@ -13,7 +13,7 @@ object Calculator extends App {
 	val modulus = (x: Double, y: Double) => x % y
 
 	// Calculator method
-	def calculator(f: (Double, Double) => Double, input01: Double, input02: Double) = f(input01, input02)
+	def calculator(f: (Double, Double) => Any, input01: Double, input02: Double) = f(input01, input02)
 
 	println("The sum of (134 + 10) = " + calculator(sum, 134, 10))
 	println("The subtract of (134 - 10) = " + calculator(subtract, 134, 10))
